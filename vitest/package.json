@@ -9,7 +9,8 @@
     "extends": "./node_modules/standard/slint.json"
   },
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "name": "vitest",
   "version": "1.0.0",
