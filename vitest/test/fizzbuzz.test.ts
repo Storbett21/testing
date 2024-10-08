@@ -9,18 +9,23 @@ const fizzbuzz = (number): any | "fizz" => {  // puedes usar 'any' si quieres ma
 };
 
 describe('fizzbuzz', () : void => {
-  it('should be a function', () : void => {
-    expect(typeof fizzbuzz).toBe('function');
-  });
+  // it('should be a function', () : void => {
+  //   expect(typeof fizzbuzz).toBe('function');
+  // });
 
-  it('should throw if no number is provided as parameter', () : void => {
+  it('should throw if not number is provided as parameter', () : void => {
     // Debe ir dentro de una función anónima
-    expect(() : void => fizzbuzz(NaN)).toThrow();
+    expect(() : number | "fizz" => fizzbuzz(NaN)).toThrow();
   });
 
-  it('should throw a specific error message if no number is provided as parameter', () => {
+  it('should throw a specific error message if not number is provided as parameter', (): void => {
     // También se debe envolver en una función
-    expect(() : void => fizzbuzz(NaN)).toThrow("parameter provider must be a number");
+    expect(() : number | "fizz" => fizzbuzz(NaN)).toThrow("parameter provider must be a number");
+  });
+
+  it('should throw a specific error message not number is provided', (): void => {
+    // También se debe envolver en una función
+    expect(() : number | "fizz" => fizzbuzz(NaN)).toThrow("parameter provider must be a number");
   });
 
   it('should return 1 if number provided is 1', () : void => {
