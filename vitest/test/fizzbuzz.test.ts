@@ -1,10 +1,10 @@
 import { describe, it, expect } from 'vitest';
 
-const fizzbuzz = (number): number | "fizz" => {  // puedes usar 'any' si quieres manejar varios tipos
+const fizzbuzz = (number): any | "fizz" => {  // puedes usar 'any' si quieres manejar varios tipos
   if (typeof number !== 'number') throw new Error('parameter provided must be a number')
   if (Number.isNaN(number)) throw new Error('parameter provided must be a number')
   
-  if (number == 3) return 'fizz'
+  if (number % 3 == 0) return 'fizz'
   return number
 };
 
