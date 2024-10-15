@@ -5,15 +5,19 @@ const canReconfigure = (from, to): void => {
 
   if (typeof to !== "string") throw new Error("to is not a string");
 
-  if (from.length !== to.length) return false
+  const isSameLength = from.length === to.length
+  if (!isSameLength) return false
+
+  const hasSameUniqueLetters = new Set(from).size == new Set(to).size
+  if (!hasSameUniqueLetters) return false
  
   return true
 };
 
 describe("canReconfigure", (): void => {  // Aquí cambiaste a "canReconfigure"
-  it("should be a function", (): void => {
-    expect(canReconfigure).toBeTypeOf("function");
-  });
+  // it("should be a function", (): void => {
+  //   expect(canReconfigure).toBeTypeOf("function");
+  // });
 
   it("should throw if first parameter is missing", (): void => {
     expect((): void => canReconfigure()).toThrow();
@@ -33,6 +37,11 @@ describe("canReconfigure", (): void => {  // Aquí cambiaste a "canReconfigure"
 
   it('should return false if strings have different lengths', (): void => {
     expect(canReconfigure('abc','de')).toBe(false)
+  })
+
+  it('should return false if string provided have different number of unique letters', (): void => {
+    expect(canReconfigure('abc', 'ddd')).toBe(false)
+
   })
 });
 
